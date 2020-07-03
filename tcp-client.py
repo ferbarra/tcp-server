@@ -1,7 +1,8 @@
 import socket
+from decouple import config
 
-host = "127.0.0.1"
-port = 5001
+host = config('HOST')
+port = config('PORT', cast=int)
 
 def get_user_input():
     return input('? ')
@@ -15,9 +16,7 @@ def main():
 
     user_input = get_user_input()
 
-    socket_object.send('caca'.encode())
-
-    while user_input != 'q' and False:
+    while user_input != 'q':
         socket_object.send(user_input.encode())
         print("Message sent")
 

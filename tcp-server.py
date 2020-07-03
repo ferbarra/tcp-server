@@ -1,9 +1,10 @@
 import socket # tcp library
 import sys
+from decouple import config
 
-host = "127.0.0.1"
-port = 5001
-message_size = 512
+host = config('HOST')
+port = config('PORT', cast=int)
+message_size = config('MESSAGE_SIZE', cast=int)
 
 def main():
 
