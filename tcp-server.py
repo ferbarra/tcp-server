@@ -14,8 +14,8 @@ def main():
         print('Socket initated')
     except socket.error as error:
         print('Unable to initialize socket.')
-        print(f'Error code: {error[0]}') 
-        print(f'Error message: {error[1]}')
+        print('Error code: {0}'.format(error[0]))
+        print('Error message: {1}'.format(error[1]))
         sys.exit()
 
     socket_object.bind((host, port))
@@ -23,7 +23,7 @@ def main():
     socket_object.listen(0)
 
     connection, address = socket_object.accept()
-    print(f'Accepted connection from {address}')
+    print('Accepted connection from {0}'.format(address))
     
     while True: 
         data = connection.recv(message_size).decode()
@@ -31,7 +31,7 @@ def main():
         if not data:
             break
 
-        print (f'Data received: {data}')
+        print ('Data received: {0}'.format(data))
         
 
 
