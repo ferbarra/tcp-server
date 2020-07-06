@@ -12,7 +12,7 @@ class VantageProtocolRequestHandler(socketserver.BaseRequestHandler):
     def handle(self):
         while True:
 
-            payload = self.request.recv(message_size).strip()
+            payload = self.request.recv(message_size).decode()
             if not payload:
                 break
 
